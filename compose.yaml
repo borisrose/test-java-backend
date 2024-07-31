@@ -1,19 +1,19 @@
 version: '3.8'
 
 services:
-  app:
-    build: .
-    ports:
-      - "8080:8080"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/votre_base_de_donnees
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: rootpassword
-      SPRING_JPA_HIBERNATE_DDL_AUTO: update
-    depends_on:
-      - db
-    volumes:
-      - .:/app
+  # app:
+  #   build: .
+  #   ports:
+  #     - "8080:8080"
+  #   environment:
+  #     SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/yoga
+  #     SPRING_DATASOURCE_USERNAME: boris
+  #     SPRING_DATASOURCE_PASSWORD: caroline
+  #     SPRING_JPA_HIBERNATE_DDL_AUTO: update
+  #   depends_on:
+  #     - db
+  #   volumes:
+  #     - .:/app
 
   db:
     image: mysql:latest

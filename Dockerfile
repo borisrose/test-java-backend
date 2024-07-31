@@ -11,20 +11,8 @@ RUN mvn dependency:go-offline
 # Copier le reste des fichiers de l'application
 COPY src ./src
 
-# Construire l'application
-RUN mvn clean package -DskipTests
-
-# Utiliser une image Java légère pour exécuter l'application
-FROM openjdk:11-jre-slim
-
-# Définir le répertoire de travail
-WORKDIR /app
-
-# Copier le jar construit depuis l'étape précédente
-COPY --from=build /app/target/*.jar /app/app.jar
-
 # Exposer le port 8080
 EXPOSE 8080
 
 # Commande pour démarrer l'application
-CMD ["java", "-jar", "/app/app.jar"]
+CMD ["mvn","spring-boot:run"]
